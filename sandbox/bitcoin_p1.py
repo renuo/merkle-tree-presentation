@@ -67,7 +67,7 @@ class BitcoinTransactionsBlock(Scene):
         self.wait(1)
 
         # Add the previous hash to the new block
-        prev_timestamp = (datetime.datetime.now() - datetime.timedelta(days=1)).strftime("%Y-%m-%d %H:%M:%S")
+        prev_timestamp = (datetime.datetime.now() - datetime.timedelta(minutes=10)).strftime("%Y-%m-%d %H:%M:%S")
         prev_prev_block_hash = hashlib.sha256("Genesis Block".encode()).hexdigest()[:15] + "..."
         prev_block_info = VGroup(
             Text(f"Hash: {prev_block_hash}", font_size=25, color=ORANGE).move_to(left_block.get_center()),
@@ -79,7 +79,6 @@ class BitcoinTransactionsBlock(Scene):
         # Link the blocks as a chain
         prev_prev_block_hash = Text(f"Previous Block: {prev_prev_block_hash}", font_size=25).next_to(left_block.get_center(), DOWN, buff=0.9)
         prev_block_hash_text = Text(f"Previous Block: {prev_block_hash}", font_size=25).next_to(merkle_root, DOWN, buff=0.9)
-        explanation_3 = Text("Blocks contain other important information like timestamp and the previous hash", font_size=25).to_edge(DOWN)
         block_info.add(prev_block_hash_text)
         prev_block_info.add(prev_prev_block_hash)
         chain_link = Line(start=left_block.get_right(), end=bitcoin_block.get_left(), stroke_width=6, color=WHITE)
@@ -88,8 +87,10 @@ class BitcoinTransactionsBlock(Scene):
 
         # Hold the final frame
         self.wait(2)
+        self.play(FadeOut(block_info), FadeOut(prev_block_info), FadeOut(explanation_2), FadeOut(explanation_2_2), FadeOut(chain_link), FadeOut(bitcoin_block), FadeOut(left_block), FadeOut(block_label), FadeOut(left_block_label))
+        self.wait(1)
 
 if __name__ == "__main__":
     import os
 
-    os.system("manim -qm -p bitcoin.py BitcoinTransactionsBlock")
+    os.system("manim -qm -p bitcoin_p1.py BitcoinTransactionsBlock")
