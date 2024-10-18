@@ -84,6 +84,8 @@ To build and run the project from scratch:
    ```
    pip install -r requirements.txt
    ```
+4. Check if you need to install external dependencies for [manim-ce](https://docs.manim.community/en/stable/installation.html)
+5. Check if you need to install external dependencies for [manim-slides](https://manim-slides.eertmans.be/latest/installation.html#)
 
 Now, you can run the presentation as described in the **Running the Presentation** section.
 
