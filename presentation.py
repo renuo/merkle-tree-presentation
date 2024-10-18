@@ -7,12 +7,13 @@ import hashlib
 
 TITLE_FONT_SIZE = 50
 
+
 def create_title(txt):
     return Text(
-            txt,
-            font_size=TITLE_FONT_SIZE,
-            weight=BOLD
-        ).to_edge(UP)
+        txt,
+        font_size=TITLE_FONT_SIZE,
+        weight=BOLD
+    ).to_edge(UP)
 
 
 class MerkleTreePresentation(Slide):
@@ -95,7 +96,7 @@ class MerkleTreePresentation(Slide):
         #         Slide 3: The Problem Merkle Trees Solve
 
         # Transform the title
-        slide_3_title =  create_title("The Problem")
+        slide_3_title = create_title("The Problem")
         self.play(Transform(slide_2_title, slide_3_title, replace_mobject_with_target_in_scene=True))
         self.next_slide()
 
@@ -128,7 +129,7 @@ class MerkleTreePresentation(Slide):
         #         Slide 4/5: Introduction to Hash Functions and visualization
 
         # Transform the title
-        slide_4_title =  create_title("Introduction to Hash Functions")
+        slide_4_title = create_title("Introduction to Hash Functions")
         self.play(Transform(slide_3_title, slide_4_title, replace_mobject_with_target_in_scene=True))
         self.next_slide()
 
@@ -299,7 +300,6 @@ class MerkleTreePresentation(Slide):
         # Clean up
         self.play(FadeOut(input_large), FadeOut(hash_large))
 
-
         # Simple analogy: Fingerprinting data
         analogy_title = create_title("Hash Function as a Digital Fingerprint")
         self.play(Transform(slide_4_title, analogy_title))
@@ -323,12 +323,11 @@ class MerkleTreePresentation(Slide):
         #         Slide 6: Building Blocks of Merkle Trees
 
         # Transform the title
-        slide_6_title =  create_title("Building Blocks of Merkle Trees")
+        slide_6_title = create_title("Building Blocks of Merkle Trees")
         self.play(Transform(slide_4_title, slide_6_title, replace_mobject_with_target_in_scene=True))
         self.next_slide()
 
         slide_6_tiles = []
-
 
         # Step 1: Display data blocks (leaf nodes)
         leaf_labels = ["D1", "D2", "D3", "D4"]
@@ -511,7 +510,7 @@ class MerkleTreePresentation(Slide):
         #         Slide 7: What is a Merkle Tree?
 
         # Transform the title
-        slide_7_title =  create_title("What is a Merkle Tree? ")
+        slide_7_title = create_title("What is a Merkle Tree? ")
         self.play(Transform(slide_6_title, slide_7_title, replace_mobject_with_target_in_scene=True))
         self.next_slide()
 
@@ -534,7 +533,6 @@ class MerkleTreePresentation(Slide):
         x_positions = [-5, -2, 2, 5]
 
         slide_7_tiles = []
-
 
         for i, (label, x_pos) in enumerate(zip(leaf_labels, x_positions)):
             rect = Square(side_length=1.0, color=ORANGE)
@@ -618,7 +616,7 @@ class MerkleTreePresentation(Slide):
         #         Slide 8: How Merkle Trees Work
 
         # Transform the title
-        slide_8_title =  create_title("How Merkle Trees Work")
+        slide_8_title = create_title("How Merkle Trees Work")
         self.play(Transform(slide_7_title, slide_8_title, replace_mobject_with_target_in_scene=True))
         self.next_slide()
 
@@ -714,7 +712,7 @@ class MerkleTreePresentation(Slide):
         #         Slide 9: Example Usage - BitTorrent
 
         # Transform the title
-        slide_9_title =  create_title("Example Usage - BitTorrent")
+        slide_9_title = create_title("Example Usage - BitTorrent")
         self.play(Transform(slide_8_title, slide_9_title, replace_mobject_with_target_in_scene=True))
         self.next_slide()
 
@@ -734,11 +732,10 @@ class MerkleTreePresentation(Slide):
         self.play(ReplacementTransform(label_1, label_2))
         self.next_slide()
 
-
         chunks = VGroup(*[Square().scale(0.5).set_fill(BLUE, opacity=0.5) for _ in range(4)])
         chunks.arrange_in_grid(rows=1, buff=0.5).next_to(slide_9_title, DOWN, buff=2)
 
-        chunk_labels = VGroup(*[Text(f"C{i+1}").next_to(chunks[i], DOWN) for i in range(4)])
+        chunk_labels = VGroup(*[Text(f"C{i + 1}").next_to(chunks[i], DOWN) for i in range(4)])
 
         self.play(ReplacementTransform(file_box, chunks), Write(chunk_labels), FadeOut(file_label), FadeOut(file_hash))
         self.next_slide()
@@ -747,7 +744,7 @@ class MerkleTreePresentation(Slide):
         self.play(ReplacementTransform(label_2, label_3))
         self.next_slide()
 
-        chunk_hashes = VGroup(*[Text(f"H{i+1}").next_to(chunks[i], DOWN).set_color(ORANGE) for i in range(4)])
+        chunk_hashes = VGroup(*[Text(f"H{i + 1}").next_to(chunks[i], DOWN).set_color(ORANGE) for i in range(4)])
 
         for i in [3, 0, 2, 1]:
             self.play(chunks[i].animate.set_fill(GREEN, opacity=0.7), run_time=1)
@@ -774,7 +771,6 @@ class MerkleTreePresentation(Slide):
         self.play(Write(merkle_root_hash))
         self.next_slide()
 
-
         label_5 = Text("5. Compare Root Hash", font_size=25).to_edge(DOWN)
         self.play(ReplacementTransform(label_4, label_5))
         self.next_slide()
@@ -787,7 +783,8 @@ class MerkleTreePresentation(Slide):
         self.next_slide()
 
         label_6 = Text("File Integrity Verified!", color=GREEN).to_edge(DOWN)
-        self.play(Indicate(file_hash, scale_factor=1.2, color=GREEN), Indicate(merkle_root_hash, scale_factor=1.2, color=GREEN))
+        self.play(Indicate(file_hash, scale_factor=1.2, color=GREEN),
+                  Indicate(merkle_root_hash, scale_factor=1.2, color=GREEN))
         self.play(ReplacementTransform(label_5, label_6))
         self.next_slide()
 
@@ -806,7 +803,7 @@ class MerkleTreePresentation(Slide):
         #         Slide 11: Example Usage - BitCoin
 
         # Transform the title
-        slide_11_title =  create_title("Example Usage - Bitcoin")
+        slide_11_title = create_title("Example Usage - Bitcoin")
         self.play(Transform(slide_9_title, slide_11_title, replace_mobject_with_target_in_scene=True))
         self.next_slide()
 
@@ -833,7 +830,8 @@ class MerkleTreePresentation(Slide):
 
         combined_hash_input = ''.join([hashlib.sha256(f"Tx {i + 1}".encode()).hexdigest() for i in range(16)])
         merkle_root_hash = hashlib.sha256(combined_hash_input.encode()).hexdigest()[:15]
-        merkle_root = Text(f"Root Hash: {merkle_root_hash}...", font_size=25, color=ORANGE).move_to(bitcoin_block.get_center())
+        merkle_root = Text(f"Root Hash: {merkle_root_hash}...", font_size=25, color=ORANGE).move_to(
+            bitcoin_block.get_center())
         self.play(ReplacementTransform(transaction_hashes, merkle_root))
         self.next_slide()
 
@@ -848,7 +846,8 @@ class MerkleTreePresentation(Slide):
         prev_block_time = Text(f"Timestamp: {timestamp}", font_size=25).next_to(merkle_root, DOWN, buff=0.3)
         block_info = VGroup(prev_block_time, merkle_root)
 
-        explanation_2_1 = Text("Blocks contain other important information like timestamp", font_size=25).to_edge(DOWN + LEFT * 3)
+        explanation_2_1 = Text("Blocks contain other important information like timestamp", font_size=25).to_edge(
+            DOWN + LEFT * 3)
         explanation_2_2 = Text("and the previous hash", font_size=25).next_to(explanation_2_1, RIGHT, buff=0.1)
         explanation_2 = VGroup(explanation_2_1, explanation_2_2)
 
@@ -858,7 +857,8 @@ class MerkleTreePresentation(Slide):
         self.next_slide()
 
         # Shift the current block to the right
-        self.play(bitcoin_block.animate.shift(RIGHT * 4), block_label.animate.shift(RIGHT * 4), block_info.animate.shift(RIGHT * 4))
+        self.play(bitcoin_block.animate.shift(RIGHT * 4), block_label.animate.shift(RIGHT * 4),
+                  block_info.animate.shift(RIGHT * 4))
         self.wait(0.5)
 
         left_block = Rectangle(width=6, height=4).set_fill(BLUE, opacity=0.3).move_to(LEFT * 4)
@@ -868,7 +868,7 @@ class MerkleTreePresentation(Slide):
 
         # Add the previous hash to the new block
         prev_timestamp = (datetime.datetime.now() - datetime.timedelta(minutes=10)).strftime("%Y-%m-%d %H:%M:%S")
-        prev_prev_block_hash = hashlib.sha256("Genesis Block".encode()).hexdigest()[:15] + "..."
+        prev_prev_block_hash = hashlib.sha256("Prev Block".encode()).hexdigest()[:15] + "..."
         prev_block_info = VGroup(
             Text(f"Root Hash: {prev_block_hash}", font_size=25, color=ORANGE).move_to(left_block.get_center()),
             Text(f"Timestamp: {prev_timestamp}", font_size=25).next_to(left_block.get_center(), DOWN, buff=0.3),
@@ -877,17 +877,31 @@ class MerkleTreePresentation(Slide):
         self.next_slide()
 
         # Link the blocks as a chain
-        prev_prev_block_hash = Text(f"Previous Block: {prev_prev_block_hash}", font_size=25).next_to(left_block.get_center(), DOWN, buff=0.9)
-        prev_block_hash_text = Text(f"Previous Block: {prev_block_hash}", font_size=25).next_to(merkle_root, DOWN, buff=0.9)
-        block_info.add(prev_block_hash_text)
-        prev_block_info.add(prev_prev_block_hash)
+        prev_prev_block_hash = Text(f"Previous Block: {prev_prev_block_hash}", font_size=25).next_to(
+            left_block.get_center(), DOWN, buff=0.9)
+        prev_block_hash = Text(f"Previous Block: {prev_block_hash}", font_size=25).next_to(merkle_root, DOWN,
+                                                                                                buff=0.9)
         chain_link = Line(start=left_block.get_right(), end=bitcoin_block.get_left(), stroke_width=6, color=WHITE)
         self.play(Write(explanation_2_2))
         self.next_slide()
 
-        self.play(Create(chain_link), Write(prev_prev_block_hash), Write(prev_block_hash_text))
+        self.play(Create(chain_link), Write(prev_prev_block_hash), Write(prev_block_hash))
+        block_info.add(prev_block_hash)
+        prev_block_info.add(prev_prev_block_hash)
         self.next_slide()
-        self.play(FadeOut(block_info), FadeOut(prev_block_info), FadeOut(explanation_2), FadeOut(explanation_2_2), FadeOut(chain_link), FadeOut(bitcoin_block), FadeOut(left_block), FadeOut(block_label), FadeOut(left_block_label))
+        self.play(FadeOut(
+            block_info,
+            prev_block_info,
+            prev_prev_block_hash,
+            prev_block_hash,
+            explanation_2,
+            explanation_2_2,
+            chain_link,
+            bitcoin_block,
+            left_block,
+            block_label,
+            left_block_label
+        ))
         self.next_slide()
 
         user_device = ImageMobject("img/bitcoin_user.png").scale(0.5).to_corner(LEFT)
@@ -970,7 +984,8 @@ class MerkleTreePresentation(Slide):
         ).to_edge(DOWN)
         self.play(ReplacementTransform(explanation_2, explanation_3))
 
-        self.play(FadeOut(path_line, network_node, bitcoin_image, user_text, user_device, question_mark, network_nodes, network_lines))
+        self.play(FadeOut(path_line, network_node, bitcoin_image, user_text, user_device, question_mark, network_nodes,
+                          network_lines))
         self.next_slide()
 
         leaf_labels = ["h1", "h2", "h3", "h4"]
@@ -1062,7 +1077,9 @@ class MerkleTreePresentation(Slide):
         self.next_slide()
 
         merkle_proof_bullet = Dot(radius=0.1, color=BLUE).move_to(line.get_end())
-        text = Text("The Merkle proof provides just enough information for you to \n compute the Merkle root starting from your transaction hash.", font_size=30, color=YELLOW).to_edge(LEFT)
+        text = Text(
+            "The Merkle proof provides just enough information for you to \n compute the Merkle root starting from your transaction hash.",
+            font_size=30, color=YELLOW).to_edge(LEFT)
         self.play(ReplacementTransform(merkle_proof, merkle_proof_bullet), Write(text))
         self.next_slide()
 
@@ -1077,7 +1094,8 @@ class MerkleTreePresentation(Slide):
         self.next_slide()
         self.play(ReplacementTransform(merkle_proof_bullet, merkle_proof_text))
 
-        self.play(FadeIn(path_line, network_node, bitcoin_image, user_text, user_device, question_mark, network_nodes, network_lines))
+        self.play(FadeIn(path_line, network_node, bitcoin_image, user_text, user_device, question_mark, network_nodes,
+                         network_lines))
 
         self.play(MoveAlongPath(merkle_proof_text, reversed_line), run_time=2)
         self.play(FadeOut(merkle_proof_text))
@@ -1155,9 +1173,9 @@ class MerkleTreePresentation(Slide):
         self.play(ReplacementTransform(explanation_9, explanation_10), ReplacementTransform(question_mark, check_mark))
         self.next_slide()
 
-        self.play(FadeOut(explanation_10), FadeOut(check_mark), FadeOut(root_hash, block_hash), FadeOut(user_device, user_text))
+        self.play(FadeOut(explanation_10), FadeOut(check_mark), FadeOut(root_hash, block_hash),
+                  FadeOut(user_device, user_text))
         self.next_slide()
-
 
         # ########################################
         # #         Slide 12: Example Usage - DBMS
@@ -1171,7 +1189,7 @@ class MerkleTreePresentation(Slide):
         #         Slide 13: Benefits of Merkle Trees
 
         # Transform the title
-        slide_13_title =  create_title("Benefits of Merkle Trees")
+        slide_13_title = create_title("Benefits of Merkle Trees")
         self.play(Transform(slide_11_title, slide_13_title, replace_mobject_with_target_in_scene=True))
         self.next_slide()
 
@@ -1209,7 +1227,7 @@ class MerkleTreePresentation(Slide):
         #         Slide 14: Take Home message
 
         # Transform the title
-        slide_14_title =  create_title("Questions?").move_to(ORIGIN)
+        slide_14_title = create_title("Questions?").move_to(ORIGIN)
         self.play(Transform(slide_13_title, slide_14_title, replace_mobject_with_target_in_scene=True))
         self.next_slide()
 
