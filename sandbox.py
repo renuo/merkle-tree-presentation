@@ -13,7 +13,7 @@ class MerkleTreeHowItWorks(Scene):
         #         Slide 1: Title Slide
 
         # Display the company logo
-        logo = ImageMobject("company_logo.png")
+        logo = ImageMobject("img/company_logo.png")
         logo.scale(0.3)
         logo.to_corner(DR)
 

@@ -22,7 +22,7 @@ class MerkleTreePresentation(Slide):
         #         Slide 1: Title Slide
 
         # Display the company logo
-        logo = ImageMobject("company_logo.png")
+        logo = ImageMobject("img/company_logo.png")
         logo.scale(0.3)
         logo.to_corner(DR)
 
@@ -890,7 +890,7 @@ class MerkleTreePresentation(Slide):
         self.play(FadeOut(block_info), FadeOut(prev_block_info), FadeOut(explanation_2), FadeOut(explanation_2_2), FadeOut(chain_link), FadeOut(bitcoin_block), FadeOut(left_block), FadeOut(block_label), FadeOut(left_block_label))
         self.next_slide()
 
-        user_device = ImageMobject("bitcoin_user.png").scale(0.5).to_corner(LEFT)
+        user_device = ImageMobject("img/bitcoin_user.png").scale(0.5).to_corner(LEFT)
         self.play(FadeIn(user_device))
 
         user_text = Text("User Verifying \n a Transaction", font_size=24).next_to(user_device, DOWN)
@@ -903,7 +903,7 @@ class MerkleTreePresentation(Slide):
         self.next_slide()
 
         # Bitcoin Image at the Center
-        bitcoin_image = ImageMobject("bitcoin.png").scale(0.2).move_to(RIGHT * 3)
+        bitcoin_image = ImageMobject("img/bitcoin.png").scale(0.2).move_to(RIGHT * 3)
 
         # Network Representation: Nodes Around Bitcoin Image
         network_nodes = VGroup()

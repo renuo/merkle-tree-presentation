@@ -11,7 +11,7 @@ class BitcoinTransactionsBlock(Scene):
         title = Text("Bitcoin Transactions in a Block", font_size=36, weight=BOLD).to_edge(UP)
         self.play(Write(title))
 
-        user_device = ImageMobject("bitcoin_user.png").scale(0.5).to_corner(LEFT)
+        user_device = ImageMobject("img/bitcoin_user.png").scale(0.5).to_corner(LEFT)
         self.play(FadeIn(user_device))
 
         user_text = Text("User Verifying \n a Transaction", font_size=24).next_to(user_device, DOWN)
@@ -22,7 +22,7 @@ class BitcoinTransactionsBlock(Scene):
         self.play(Write(question_mark))
 
         # Bitcoin Image at the Center
-        bitcoin_image = ImageMobject("bitcoin.png").scale(0.2).move_to(RIGHT * 3)
+        bitcoin_image = ImageMobject("img/bitcoin.png").scale(0.2).move_to(RIGHT * 3)
 
         # Network Representation: Nodes Around Bitcoin Image
         network_nodes = VGroup()
