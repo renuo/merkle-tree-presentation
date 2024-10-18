@@ -1,14 +1,10 @@
-<p align="center">
-    <a href="https://github.com/3b1b/manim">
-        <img src="https://github.com/renuo/merkle-tree-presentation/main/img/logo.png">
-    </a>
+<p>
+   <img src="https://raw.githubusercontent.com/renuo/merkle-tree-presentation/main/img/logo.png"  alt="Presentation Logo"></img>
 </p>
 
-
-# 🌳 Merkle Tree Presentation
+# 🌳 Merkle Tree Presentation 🌳 
 
 This repository contains a slide-based presentation on **Merkle Trees**, built with [Manim](https://docs.manim.community/en/stable/) and [manim-slides](https://manim-slides.rtfd.io/). It explains the fundamentals of Merkle Trees, their role in ensuring data integrity, and examples of their usage in modern technologies like Bitcoin and BitTorrent.
-
 
 ## 🎥 Presentation Plan
 | Slide # | Title                                                 | Time (minutes) | Content                                                                                                                             | Notes                                                                                           |
